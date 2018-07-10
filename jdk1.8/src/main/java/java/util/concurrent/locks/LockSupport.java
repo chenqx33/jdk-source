@@ -137,7 +137,8 @@ public class LockSupport {
      *        this operation has no effect
      */
     /**
-     *  将阻塞(blocked)状态的线程变成非阻塞状态.
+     *  将阻塞(blocked)状态的线程变成非阻塞状态.在调用park之后调用 unpart能确保线程不被阻塞.
+     *  如果线程没被启动,不能保证调用生效.
      *
      * @param thread
      */
