@@ -136,6 +136,11 @@ public class LockSupport {
      * @param thread the thread to unpark, or {@code null}, in which case
      *        this operation has no effect
      */
+    /**
+     *  将阻塞(blocked)状态的线程变成非阻塞状态.
+     *
+     * @param thread
+     */
     public static void unpark(Thread thread) {
         if (thread != null)
             UNSAFE.unpark(thread);
