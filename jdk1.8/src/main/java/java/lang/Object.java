@@ -60,6 +60,12 @@ public class Object {
      *         class of this object.
      * @jls 15.8.2 Class Literals
      */
+    /**
+     * https://www.cnblogs.com/wsw-bk/p/8026266.html
+     * https://blog.csdn.net/xiaokang123456kao/article/details/72859765
+     * 这个Class对象就是类的字节码在内存中的对象表示
+     * @return
+     */
     public final native Class<?> getClass();
 
     /**
@@ -96,6 +102,15 @@ public class Object {
      * @return  a hash code value for this object.
      * @see     java.lang.Object#equals(java.lang.Object)
      * @see     java.lang.System#identityHashCode
+     */
+    /**
+     * hashCode()特点:
+     * 1.同一个对象hashCode无论何时调用,返回值相同
+     * 2.equals的对象hashCode必须相同
+     * 3.不同的对象hashCode可能相同,不同不是必须不同的,但是能提升hash tables的性能
+     *
+     * 其他: native关键字说明其修饰的方法是一个原生态方法,方法对应的实现不是在当前文件
+     * @return
      */
     public native int hashCode();
 
@@ -144,6 +159,18 @@ public class Object {
      *          argument; {@code false} otherwise.
      * @see     #hashCode()
      * @see     java.util.HashMap
+     */
+    /**
+     * 具有:
+     * 1.自反性
+     * 2.对称性
+     * 3.传递性
+     * 4.一致性
+     *
+     * null==null true
+     * 另外: 重写equals一般需要重写hashCode,以为equal objects must have equal hash codes.
+     * @param obj
+     * @return
      */
     public boolean equals(Object obj) {
         return (this == obj);
